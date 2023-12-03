@@ -1,6 +1,7 @@
 *** Settings ***
 Library       AppiumLibrary
 Library       ../Libraries/StringGenerator.py
+Resource       common.robot
 Variables     ../Data/user_details.yaml
 
 *** Variables ***
@@ -21,7 +22,7 @@ ${password}                              id=id/password_edt
 *** Keywords ***
 
 Verify Login Page Displayed
-    Wait Until Page Contains Element    ${rightIcon}            timeout=15
+    Wait Until Page Contains Element    ${login_btn}            timeout=15
 
 Click On Hesap Olustur Button
   Wait Until Page Contains Element      ${login_hesap_olustur}
