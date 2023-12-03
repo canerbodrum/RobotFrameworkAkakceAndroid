@@ -1,14 +1,16 @@
 *** Settings ***
-Resource         ../Resources/resources.robot
+Resource         ../Resources/common.robot
 Test Setup       Open Akakce Application
 Test Teardown    Close Application
 
 *** Test Cases ***
+
 Register Akakce Application     # generate random credentials from faker
     [Tags]     register
     Close Pop Up Message
-    Click Right Icon Button
-    Click Register Button
+    Click On User Icon
+    Verify Login Page Displayed
+    Click On Hesap Olustur Button
     Enter Register Details
     Accept Turns and Conditions
     Click On Register Button
@@ -17,15 +19,8 @@ Login With Standart User        # login with saved user data from userdetail.yam
     [Tags]     login
 
     Close Pop Up Message
-    Click Right Icon Button
+    Click On User Icon
     Verify Login Page Displayed
     Enter Standart User Login Credentials
     Click on Login Button
     Verify User Is Logged In
-
-Search For Bilgisayar
-
-    Close Pop Up Message
-    Type Bilgisayar In The Search Box And Click Enter
-    Select First Product
-    Go To Selected Product
